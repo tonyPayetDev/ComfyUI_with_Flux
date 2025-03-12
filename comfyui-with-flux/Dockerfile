@@ -1,5 +1,7 @@
 FROM valyriantech/comfyui-without-flux:latest
 
+# Install git
+RUN apt-get update && apt-get install -y git
 # Due to the fact that the models are in a gated repository, we need to download them separately BEFORE building this image and store them locally in a folder called flux
 # https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/ae.sft
 COPY flux/ae.sft /ComfyUI/models/vae/
